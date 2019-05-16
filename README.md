@@ -22,3 +22,6 @@ Les clients 1 et 3 ping le client 2 qui n'est pas dans le meme reseau, on a donc
 Tout les clients ont accés a internet car le nat est configuré sur le router :
 
 ![Screenshot_4](https://user-images.githubusercontent.com/34342829/57858964-5302e380-77f2-11e9-8d25-20c03fa261cf.png)
+
+
+
