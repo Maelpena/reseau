@@ -37,9 +37,10 @@ configuration du VLAN 10 :
 (config-if)# switchport access vlan 10
 ``````
 
-Le client 1 ping le client 3 car ils sont dans le meme reseau et le meme VLAN, ils ne passent donc pas par le routeur pour se joindre : 
+Le client 1 et le client 3 se ping car ils sont dans le meme reseau et le meme VLAN, ils ne passent donc pas par le routeur pour se joindre : 
 
 ![Screenshot_2](https://user-images.githubusercontent.com/34342829/57858624-af193800-77f1-11e9-81cf-4843e014e4ef.png)
+![image](https://user-images.githubusercontent.com/34342829/58162908-53ccc700-7c83-11e9-93ec-aefe744348b5.png)
 
 Fichier de conf du client 2 :
 
