@@ -58,7 +58,7 @@ configuration du VLAN 20 sur IOU1 :
 (config-if)# switchport access vlan 20
 ``````
 
-Le client 2 n'est pas dans le meme reseau, il faut donc qu'il passe par le routeur pour joindre le client 1 et le client 3.  Pour cela on configure un "router on a stick" afin d'avoir deux sous interface :
+Le client 2 n'est pas dans le meme reseau, il faut donc qu'il passe par le routeur pour joindre le client 1 et le client 3.  Pour cela on configure un "router on a stick" afin d'avoir deux sous interface sur l'interface 1/0 :
 
 ![image](https://user-images.githubusercontent.com/34342829/58160383-a0fa6a00-7c7e-11e9-9d08-0f8694067062.png)
 
