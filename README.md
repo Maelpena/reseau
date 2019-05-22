@@ -6,15 +6,15 @@ Voici l'infra GNS :
 
 
 
-fichier de conf ifcfg-enp0s3 du client 1 :
+Fichier de conf ifcfg-enp0s3 du client 1 :
 
 ![image](https://user-images.githubusercontent.com/34342829/58159461-db630780-7c7c-11e9-9fd8-3ddcc6d33db2.png)
 
-fichier de conf ifcfg-enp0s3 du client 3 :
+Fichier de conf ifcfg-enp0s3 du client 3 :
 
 ![image](https://user-images.githubusercontent.com/34342829/58159571-17966800-7c7d-11e9-9bc5-e71734333107.png)
 
-configuration du VLAN 10 :
+Configuration du VLAN 10 :
 
 -SUR IOU1
 ``````
@@ -47,7 +47,7 @@ Fichier de conf ifcfg-enp0s3 du client 2 :
 ![image](https://user-images.githubusercontent.com/34342829/58159961-cfc41080-7c7d-11e9-8f15-79db8b01b747.png)
 
 
-configuration du VLAN 20 sur IOU1 :
+Configuration du VLAN 20 sur IOU1 :
 
 ``````
 # conf t
@@ -59,7 +59,22 @@ configuration du VLAN 20 sur IOU1 :
 (config-if)# switchport access vlan 20
 ``````
 
-Le client 2 n'est pas dans le meme reseau, il faut donc qu'il passe par le routeur pour joindre le client 1 et le client 3.  Pour cela on configure un "router on a stick" afin d'avoir deux sous interface sur l'interface 1/0 :
+Le client 2 n'est pas dans le meme reseau, il faut donc qu'il passe par le routeur pour joindre le client 1 et le client 3.  Pour cela on configure un "router on a stick" afin d'avoir deux sous interfaces sur l'interface 1/0 :
+
+``````
+Router(config-if)#interface fastEthernet 1/0.1
+
+Router(config-subif)#encapsulation dot1Q 10
+Router(config-subif)#ip address 10.1.1.2 255.255.255.0
+Router(config-subif)#exit
+
+
+Router(config-if)#interface fastEthernet 1/0.2
+Router(config-subif)#encapsulation dot1Q 20
+Router(config-subif)#ip address 10.2.1.2 255.255.255.0
+``````
+
+Ce qui nous donne :
 
 ![image](https://user-images.githubusercontent.com/34342829/58160383-a0fa6a00-7c7e-11e9-9d08-0f8694067062.png)
 
@@ -90,3 +105,4 @@ Tout les clients ont accés à internet car le nat est configuré sur le router 
 
 
 
+Mission accomplie !
